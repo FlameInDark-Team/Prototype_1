@@ -12,8 +12,8 @@ contract CredentialRegistry {
 
     struct Credential {
         address issuer;
-        string studentName; // Stored on-chain for simplicity in this MVP, ideally in DID doc
-        string studentDID;  // The student's DID (e.g., did:ethr:0x...)
+        string studentName; 
+        string studentDID;  
         string courseName;
         bytes32 credHash;   // Hash of the credential data stored on IPFS
         string ipfsCID;     // Location of the full credential file
