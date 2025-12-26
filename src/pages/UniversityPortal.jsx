@@ -6,7 +6,7 @@ import styles from '../styles/UniversityPortal.module.css';
 
 const UniversityPortal = () => {
     const { account, role, connectWallet, issueCredential, batchIssueCredentials, loading, ipfsProgress } = useBlockchain();
-    const [activeTab, setActiveTab] = useState('issue'); // 'issue' | 'history'
+    const [activeTab, setActiveTab] = useState('issue');
     
     // Form State
     const [form, setForm] = useState({
@@ -14,7 +14,7 @@ const UniversityPortal = () => {
         studentDID: '',
         courseName: ''
     });
-    const [status, setStatus] = useState(null); // { type: 'success' | 'error', msg: '' }
+    const [status, setStatus] = useState(null); 
 
     const handleBatch = async () => {
         setStatus(null);

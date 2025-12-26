@@ -6,7 +6,7 @@ export const TypewriterEffect = ({
   className,
   cursorClassName,
 }) => {
-  // words is an array of objects: { text: "Hello", className: "text-blue-500" }
+ 
   
   const containerVariants = {
     hidden: { opacity: 0 },

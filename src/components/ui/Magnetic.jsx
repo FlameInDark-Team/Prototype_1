@@ -13,7 +13,7 @@ export const Magnetic = ({ children }) => {
         const distanceX = clientX - centerX;
         const distanceY = clientY - centerY;
 
-        // Apply a multiplier for the strength of the magnetic effect
+       
         const strength = 0.5;
         setPosition({ x: distanceX * strength, y: distanceY * strength });
     };

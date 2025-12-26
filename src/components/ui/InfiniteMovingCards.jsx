@@ -35,7 +35,7 @@ export const InfiniteMovingCards = ({
 
     function addAnimation() {
       if (containerRef.current && scrollerRef.current) {
-        // Only add duplicates if we haven't already (check using a data attribute or similar logic, but basic check relative to items length is safer)
+
         if (scrollerRef.current.getAttribute('data-cloned') === 'true') return;
         
         const scrollerContent = Array.from(scrollerRef.current.children);
@@ -55,7 +55,7 @@ export const InfiniteMovingCards = ({
       }
     }
     
-    // Check if animation already started to prevent duplication on strict mode double render
+
     if (!start) addAnimation();
   }, [direction, speed, start]);
 

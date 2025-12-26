@@ -107,7 +107,7 @@ export const SparklesCore = ({
             top: 0,
             left: 0,
             pointerEvents: 'none',
-            zIndex: 1 // Ensure it sits behind text if z-index managed by parent
+            zIndex: 1
         }}
       />
     )

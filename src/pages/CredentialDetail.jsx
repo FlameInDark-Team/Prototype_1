@@ -10,16 +10,16 @@ const CredentialDetail = () => {
     const { id } = useParams();
     const [credential, setCredential] = useState(null);
 
-    // Simulate fetching data
+
     useEffect(() => {
-        // In a real app, fetch from IPFS/Blockchain using 'id'
+       
         setTimeout(() => {
             setCredential({
                 id: id,
                 title: "Bachelor of Computer Science",
                 studentName: "Alice Doe",
                 issuer: "Stanford University",
-                issuerLogo: null, // Placeholder
+                issuerLogo: null, 
                 date: "2024-05-15",
                 skills: ["Blockchain", "Cryptography", "Smart Contracts", "React"],
                 gpa: "3.9",

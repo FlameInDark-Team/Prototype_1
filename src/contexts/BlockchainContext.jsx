@@ -3,12 +3,12 @@ import { ipfsService } from '../utils/mockIPFS';
 
 const BlockchainContext = createContext();
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const useBlockchain = () => useContext(BlockchainContext);
 
 export const BlockchainProvider = ({ children }) => {
-  const [account, setAccount] = useState(null); // Current simulated wallet address
-  const [role, setRole] = useState('guest'); // 'student', 'university', 'employer', 'government', 'admin'
+  const [account, setAccount] = useState(null); 
+  const [role, setRole] = useState('guest'); 
   const [loading, setLoading] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   
@@ -31,19 +31,19 @@ export const BlockchainProvider = ({ children }) => {
       message,
       type,
       time: Date.now()
-    }, ...prev].slice(0, 10)); // Keep last 10
+    }, ...prev].slice(0, 10));
   };
 
-  // --- Simulated Blockchain State (Persisted in LocalStorage) ---
+
   const [credentials, setCredentials] = useState(() => {
     const saved = localStorage.getItem('chain_credentials');
-    return saved ? JSON.parse(saved) : {}; // mapped by hash
+    return saved ? JSON.parse(saved) : {}; 
   });
   
   const [authorizedIssuers, setAuthorizedIssuers] = useState(() => {
     const saved = localStorage.getItem('chain_issuers');
     return saved ? JSON.parse(saved) : {
-      '0x123...UNIVERSITY': { name: 'University of Technology', authorized: true } // Default seeder
+      '0x123...UNIVERSITY': { name: 'University of Technology', authorized: true } 
     };
   });
 
@@ -60,9 +60,9 @@ export const BlockchainProvider = ({ children }) => {
   // --- Wallet Connection (Mock) ---
   const connectWallet = async (selectedRole = 'student') => {
     setLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate Metamask delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Generate a mock address based on role for demo purposes
+
     let mockAddr = "";
     if (selectedRole === 'university') mockAddr = "0x123...UNIVERSITY";
     else if (selectedRole === 'government') mockAddr = "0x999...GOV";
@@ -84,7 +84,7 @@ export const BlockchainProvider = ({ children }) => {
     setIsPaused(prev => !prev);
   };
 
-  // --- Smart Contract Functions (Simulated) ---
+
 
   const issueCredential = async (studentDID, studentName, courseName, fileData) => {
     if (isPaused) throw new Error("Contract is currently paused by SuperAdmin.");
@@ -95,7 +95,6 @@ export const BlockchainProvider = ({ children }) => {
     setLoading(true);
     setIpfsProgress(0);
     try {
-      // 1. Upload metadata/file to IPFS with progress simulation
       setIpfsProgress(10);
       await new Promise(r => setTimeout(r, 200));
       setIpfsProgress(40);
@@ -107,7 +106,7 @@ export const BlockchainProvider = ({ children }) => {
       setIpfsProgress(80);
       await new Promise(r => setTimeout(r, 300));
 
-      // 2. Record on Chain
+
       const newCred = {
         issuer: account,
         studentDID,
@@ -147,14 +146,14 @@ export const BlockchainProvider = ({ children }) => {
 
   const verifyCredential = async (hashOrId) => {
     setLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate contract lookup
+    await new Promise(resolve => setTimeout(resolve, 1000)); 
     setLoading(false);
 
     const cred = credentials[hashOrId];
     if (!cred) return { valid: false, message: "Credential hash not found in registry." };
     if (!cred.isValid) return { valid: false, message: "Credential has been revoked by issuer." };
 
-    // Fetch details from IPFS for full view
+
     const ipfsData = await ipfsService.fetch(cred.ipfsCID);
     
     return { 
@@ -192,7 +191,7 @@ export const BlockchainProvider = ({ children }) => {
     }));
   };
 
-  // --- Getters for UI ---
+
   const getMyCredentials = () => {
     return Object.values(credentials).filter(c => c.studentDID === account);
   };

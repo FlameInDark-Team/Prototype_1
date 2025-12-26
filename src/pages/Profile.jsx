@@ -12,7 +12,7 @@ const Profile = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate fetching public profile data
+     
         const loadProfile = async () => {
             await new Promise(r => setTimeout(r, 1000));
             setProfileData({

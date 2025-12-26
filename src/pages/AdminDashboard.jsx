@@ -13,7 +13,7 @@ import { useBlockchain } from '../contexts/BlockchainContext';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import styles from '../styles/AdminDashboard.module.css';
 
-// Mock Data for System Charts
+
 const trafficData = [
     { time: '00:00', calls: 45 }, { time: '04:00', calls: 30 },
     { time: '08:00', calls: 85 }, { time: '12:00', calls: 120 },

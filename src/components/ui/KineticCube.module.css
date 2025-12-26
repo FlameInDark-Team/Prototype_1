@@ -1,10 +1,3 @@
-/* ============================================
-   KINETIC CUBE - Ring Box Opening Animation
-   ============================================
-   Precisely modeled after the Kinetacube mechanism 
-   where all 6 faces unfold outward simultaneously
-   in a coordinated, satisfying motion.
-   ============================================ */
 
 .kineticCubeWrapper {
     position: relative;
@@ -16,7 +9,6 @@
     width: 100%;
 }
 
-/* Scene - The 3D perspective container */
 .scene {
     --cube-size: 200px;
     --half-size: calc(var(--cube-size) / 2);
@@ -80,7 +72,7 @@
     }
 }
 
-/* Individual Face Styling */
+
 .face {
     position: absolute;
     width: var(--cube-size);
@@ -117,7 +109,7 @@
     overflow: hidden;
 }
 
-/* Notch/Cutout in panel - matching the video design */
+
 .panelContent::before {
     content: '';
     position: absolute;
@@ -144,7 +136,7 @@
     box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.15);
 }
 
-/* Corner Brackets - The signature orange/coral pieces */
+
 .cornerBracket {
     position: absolute;
     width: 40px;
@@ -191,7 +183,7 @@
     border-radius: 0 0 4px 0;
 }
 
-/* Screw holes on panels - mechanical detail */
+
 .screwHole {
     position: absolute;
     bottom: 15px;
@@ -234,9 +226,6 @@
     border-radius: 1px;
 }
 
-/* ============================================
-   FACE POSITIONS - Closed Cube Formation
-   ============================================ */
 
 .front {
     transform: translateZ(var(--half-size));
@@ -274,13 +263,6 @@
     transition: transform 2s cubic-bezier(0.23, 1, 0.32, 1) 0.12s;
 }
 
-/* ============================================
-   FACE OPENING - Kinetacube Unfold Animation
-   ============================================
-   Each face rotates outward from its hinge edge,
-   creating the signature ring box reveal effect.
-   The angles and timing match the mechanical motion.
-   ============================================ */
 
 .front.faceOpen {
     transform: translateZ(var(--half-size)) rotateX(-145deg);
@@ -306,9 +288,6 @@
     transform: rotateX(-90deg) translateZ(var(--half-size)) rotateX(145deg);
 }
 
-/* ============================================
-   INNER CORE - Central Glow Effect
-   ============================================ */
 
 .innerCore {
     position: absolute;
@@ -359,9 +338,6 @@
     }
 }
 
-/* ============================================
-   CONTENT WRAPPER
-   ============================================ */
 
 .contentWrapper {
     position: absolute;
@@ -382,9 +358,6 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* ============================================
-   CLICK HINT
-   ============================================ */
 
 .clickHint {
     position: absolute;
@@ -420,10 +393,6 @@
     }
 }
 
-/* ============================================
-   HOVER EFFECTS
-   ============================================ */
-
 .scene:hover .cube:not(.cubeOpen) {
     transform: rotateX(-30deg) rotateY(-45deg) scale(1.08);
 }
@@ -444,9 +413,6 @@
     );
 }
 
-/* ============================================
-   RESPONSIVE ADJUSTMENTS
-   ============================================ */
 
 @media (max-width: 768px) {
     .kineticCubeWrapper {

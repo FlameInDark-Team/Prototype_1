@@ -30,7 +30,7 @@ const KineticCube = ({
         setIsAnimating(true);
         setIsOpen(true);
         
-        // Show content after faces start opening
+    
         setTimeout(() => {
             setShowContent(true);
         }, 800);
