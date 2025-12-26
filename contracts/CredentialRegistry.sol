@@ -15,8 +15,8 @@ contract CredentialRegistry {
         string studentName; 
         string studentDID;  
         string courseName;
-        bytes32 credHash;   // Hash of the credential data stored on IPFS
-        string ipfsCID;     // Location of the full credential file
+        bytes32 credHash;   
+        string ipfsCID;   
         uint256 timestamp;
         bool isValid;
         bool isRevoked;
